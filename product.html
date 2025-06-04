@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ElectroGee | Product Detail</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/product.js" defer></script>
+    <link rel="icon" href="assets/favicon-32x32.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-black">
+    <!-- Navbar -->
+    <div id="navbar"></div>
+
+    <div class="px-6 py-20  md:px-20 mt-8">
+        <a href="javascript:history.back()" class="text-sm text-gray-600 hover:text-orange-500">Go Back</a>
+    </div>
+
+
+    <!-- Loader -->
+    <div id="loader" class="text-center py-20 text-orange-500">Loading product...</div>
+
+    <!-- Main Product Container -->
+    <div id="product-container" class="hidden">
+        <!-- Product Hero -->
+        <section class="px-6 py-4 md:px-20 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2">
+                <img id="product-img" alt="Product" class="w-full rounded-xl" />
+            </div>
+            <div class="w-full md:w-1/2 space-y-6">
+                <p id="new-tag" class="text-orange-500 tracking-[10px] uppercase text-sm hidden">New Product</p>
+                <h1 id="product-title" class="text-3xl md:text-5xl font-bold uppercase"></h1>
+                <p id="product-desc" class="text-gray-500"></p>
+                <p id="product-price" class="text-lg font-bold"></p>
+
+                <!-- Quantity and Add to Cart -->
+                <div class="flex items-center gap-4">
+                    <div class="bg-gray-200 px-4 py-2 flex items-center gap-4">
+                        <button id="decrease" class="text-xl font-bold">-</button>
+                        <span id="quantity">1</span>
+                        <button id="increase" class="text-xl font-bold">+</button>
+                    </div>
+                    <button
+                        class="bg-orange-500 hover:bg-orange-400 text-white uppercase tracking-widest py-3 px-6 text-sm">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features & In the Box -->
+        <section class="px-6 md:px-20 py-10 max-w-7xl mx-auto grid md:grid-cols-3 gap-4">
+            <div class="md:col-span-2">
+                <h2 class="text-2xl font-bold mb-4 uppercase">Features</h2>
+                <p id="features" class="text-gray-500 whitespace-pre-line"></p>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold mb-4 uppercase">In the Box</h2>
+                <ul id="box-items" class="space-y-4  text-gray-700"></ul>
+            </div>
+        </section>
+
+        <!-- Fixed Gallery -->
+        <section class="px-6 md:px-20 py-10 max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-3 md:gap-4 max-w-4xl mx-auto items-start">
+                <!-- Left column - two smaller images stacked -->
+                <div class="flex flex-col gap-3 md:gap-4 flex-1">
+                    <div class="overflow-hidden rounded-xl">
+                        <img id="gallery-img-1" class="w-full h-auto object-contain" />
+                    </div>
+                    <div class="overflow-hidden rounded-xl">
+                        <img id="gallery-img-2" class="w-full h-auto object-contain" />
+                    </div>
+                </div>
+                
+                <!-- Right column - one tall image -->
+                <div class="overflow-hidden rounded-xl h-[300px] md:h-[480px]">
+                    <img id="gallery-img-3" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        </section>
+
+          
+
+        <!-- You May Also Like -->
+        <section class="px-6 md:px-20 py-20 text-center">
+            <h2 class="text-2xl font-bold uppercase mb-12">You May Also Like</h2>
+            <div id="others" class="grid md:grid-cols-3 gap-10"></div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+</body>
+
+</html>

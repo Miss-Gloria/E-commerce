@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ElectroGee | Headphones</title>
+    <link rel="icon" href="assets/favicon-32x32.png" />
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link
@@ -15,10 +16,10 @@
         font-family: "Manrope", sans-serif;
       }
       
-  .fade-in {
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeInUp 0.6s ease-out forwards;
+      .fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
 
   @keyframes fadeInUp {
@@ -83,81 +84,48 @@
     </template>
 
     <section class="py-20 px-4 md:px-20 bg-white">
-      <div
-        class="max-w-7xl mx-auto flex flex-wrap justify-center gap-x-4 gap-y-6"
-      >
-        <!-- Headphones -->
-        <div
-          class="bg-gray-100 text-center pt-20 pb-16 px-4 rounded-xl relative w-full max-w-[280px] h-[200px]"
-        >
-          <img
-            src="assets/shared/desktop/image-category-thumbnail-headphones.png"
-            alt="Headphones"
-            class="absolute top-1 left-1/2 -translate-x-1/2 -translate-y-1/2 h-28 object-contain"
-          />
-          <h3 class="uppercase tracking-wide text-lg font-semibold text-black">
-            Headphones
-          </h3>
-          <a
-            href="category-headphones.html"
-            class="text-sm tracking-widest text-gray-500 mt-2 inline-flex items-center group hover:text-orange-400"
-          >
-            Shop
-            <img
-              src="assets/shared/desktop/icon-arrow-right.svg"
-              class="ml-2 group-hover:translate-x-1 transition-transform duration-200"
-            />
-          </a>
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-x-4 gap-y-16 md:gap-y-12">
+    
+            <!-- Headphones -->
+            <div class="bg-gray-100 text-center pt-16 pb-8 px-4 rounded-xl relative w-full max-w-[280px] h-[200px]">
+                <img src="assets/shared/desktop/image-category-thumbnail-headphones.png" alt="Headphones"
+                    class="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-36 object-contain" />
+                <h3 class="uppercase tracking-wide text-lg font-semibold text-black">Headphones</h3>
+                <a href="category-headphones.html"
+                    class="text-sm tracking-widest text-gray-500 mt-2 inline-flex items-center group hover:text-orange-400">
+                    Shop
+                    <img src="assets/shared/desktop/icon-arrow-right.svg"
+                        class="ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                </a>
+            </div>
+    
+            <!-- Speakers -->
+            <div class="bg-gray-100 text-center pt-16 pb-8 px-4 rounded-xl relative w-full max-w-[280px] h-[200px]">
+                <img src="assets/shared/desktop/image-category-thumbnail-speakers.png" alt="Speakers"
+                    class="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-36 object-contain" />
+                <h3 class="uppercase tracking-wide text-lg font-semibold text-black">Speakers</h3>
+                <a href="#"
+                    class="text-sm tracking-widest text-gray-500 mt-2 inline-flex items-center group hover:text-orange-400">
+                    Shop
+                    <img src="assets/shared/desktop/icon-arrow-right.svg"
+                        class="ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                </a>
+            </div>
+    
+            <!-- Earphones -->
+            <div class="bg-gray-100 text-center pt-16 pb-8 px-4 rounded-xl relative w-full max-w-[280px] h-[200px]">
+                <img src="assets/shared/desktop/image-category-thumbnail-earphones.png" alt="Earphones"
+                    class="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-36 object-contain" />
+                <h3 class="uppercase tracking-wide text-lg font-semibold text-black">Earphones</h3>
+                <a href="#"
+                    class="text-sm tracking-widest text-gray-500 mt-2 inline-flex items-center group hover:text-orange-400">
+                    Shop
+                    <img src="assets/shared/desktop/icon-arrow-right.svg"
+                        class="ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                </a>
+            </div>
+    
         </div>
-
-        <!-- Speakers -->
-        <div
-          class="bg-gray-100 text-center pt-20 pb-8 px-4 rounded-xl relative w-full max-w-[280px] h-[200px]"
-        >
-          <img
-            src="assets/shared/desktop/image-category-thumbnail-speakers.png"
-            alt="Speakers"
-            class="absolute top-1 left-1/2 -translate-x-1/2 -translate-y-1/2 h-28 object-contain"
-          />
-          <h3 class="uppercase tracking-wide text-lg font-semibold text-black">
-            Speakers
-          </h3>
-          <a
-            href="#"
-            class="text-sm tracking-widest text-gray-500 mt-2 inline-flex items-center group hover:text-orange-400"
-          >
-            Shop
-            <img
-              src="assets/shared/desktop/icon-arrow-right.svg"
-              class="ml-2 group-hover:translate-x-1 transition-transform duration-200"
-            />
-          </a>
-        </div>
-
-        <!-- Earphones -->
-        <div
-          class="bg-gray-100 text-center pt-20 pb-8 px-4 rounded-xl relative w-full max-w-[280px] h-[200px]"
-        >
-          <img
-            src="assets/shared/desktop/image-category-thumbnail-earphones.png"
-            alt="Earphones"
-            class="absolute top-1 left-1/2 -translate-x-1/2 -translate-y-1/2 h-28 object-contain"
-          />
-          <h3 class="uppercase tracking-wide text-lg font-semibold text-black">
-            Earphones
-          </h3>
-          <a
-            href="#"
-            class="text-sm tracking-widest text-gray-500 mt-2 inline-flex items-center group hover:text-orange-400"
-          >
-            Shop
-            <img
-              src="assets/shared/desktop/icon-arrow-right.svg"
-              class="ml-2 group-hover:translate-x-1 transition-transform duration-200"
-            />
-          </a>
-        </div>
-      </div>
     </section>
 
     <section class="py-20 px-4 md:px-20">

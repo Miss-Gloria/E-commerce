@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
             clone.querySelector(".product-name").textContent = product.name;
             clone.querySelector(".product-desc").textContent = product.description;
-  
+            clone.querySelector("a").href = `product.html?slug=${product.slug}`;
             container.appendChild(clone);
           });
   
