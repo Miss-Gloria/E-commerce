@@ -1,171 +1,336 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ElectroGee | Headphones</title>
-    <link rel="icon" href="assets/favicon-32x32.png" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ElectroGee | Headphones</title>
+        <script src="./js/cart.js" defer></script>
+        <link rel="icon" href="assets/favicon-32x32.png" />
+        <script src="https://cdn.tailwindcss.com"></script>
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        font-family: "Manrope", sans-serif;
+        <link
+          href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <style>
+          body {
+            font-family: "Manrope", sans-serif;
+          }
+          
+          .fade-in {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
       }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+        </style>
+      </head>
+
+      <body class="bg-white text-black">
+        <!-- Navbar -->
+        <header class="bg-black text-white fixed top-0 left-0 right-0 z-50 shadow-md">
+          <!-- Mobile Header -->
+          <div class="md:hidden max-w-7xl mx-auto px-4 py-6 flex items-center">
+              <button id="menu-btn" class="text-white text-2xl">&#9776;</button>
+              <a href="index.html">
+                  <h1 class="text-xl font-bold tracking-widest lowercase">
+                      Electro<span class="text-orange-500">gee</span>
+                  </h1>
+              </a>
+                
+              
+              <div class="relative">
+                  <img src="assets/icon-cart.svg" alt="Cart" class="cart-icon h-6 filter invert cursor-pointer" />
       
-      .fade-in {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
+                  <span 
+                      class="cart-count absolute -top-2 -right-2 bg-orange-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+              </div>
+                
+          </div>
+      
+          <!-- Desktop Header -->
+          <div class="hidden md:flex max-w-7xl mx-auto px-4 py-6 justify-between items-center">
+              <a href="index.html">
+                  <h1 class="text-xl font-bold tracking-widest lowercase">
+                      Electro<span class="text-orange-500">gee</span>
+                  </h1>
+              </a>
+                
+              <nav class="flex gap-6 uppercase text-sm tracking-widest">
+                  <a href="index.html" class="hover:text-orange-400 py-2">Home</a>
+                  <a href="category.html?category=headphones" class="hover:text-orange-400 py-2">Headphones</a>
+                  <a href="category.html?category=speakers" class="hover:text-orange-400 py-2">Speakers</a>
+                  <a href="category.html?category=earphones" class="hover:text-orange-400 py-2">Earphones</a>
+      
+              </nav>
+            
+              <div class="relative">
+                  <img src="assets/icon-cart.svg" alt="Cart" class="cart-icon h-6 filter invert cursor-pointer" />
+      
+                  <span 
+                      class=" cart-count absolute -top-2 -right-2 bg-orange-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+              </div>
+                
+          </div>
+      
+          <!-- Mobile Nav -->
+          <nav id="mobile-nav"
+              class="hidden bg-black text-white px-6 py-4 space-y-4 shadow-md rounded-b-lg transition-all duration-300 ease-in-out absolute top-[72px] left-0 right-0 z-40">
+              <a href="index.html" class="block hover:text-orange-400 uppercase text-sm">Home</a>
+              <a href="category.html?category=headphones" class="block hover:text-orange-400 uppercase text-sm">Headphones</a>
+              <a href="category.html?category=speakers" class="block hover:text-orange-400 uppercase text-sm">Speakers</a>
+              <a href="category.html?category=earphones" class="block hover:text-orange-400 uppercase text-sm">Earphones</a>
+          </nav>
+      </header>
+      
+      
+      
+      
+        
 
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+        <section class="bg-[#131313] text-white py-24 pb-8 text-center">
+          <h1 id="page-title" class="text-3xl tracking-widest uppercase"></h1>
+        </section>
+        <div id="loader" class="flex justify-center py-20">
+            <div class="loader border-4 border-orange-500 border-t-transparent rounded-full w-10 h-10 animate-spin"></div>
+        </div>
+          
+        <!-- Products Container -->
+        <section id="product-list" class="space-y-20 px-6 py-16 max-w-6xl mx-auto hidden"></section>
 
-    </style>
-  </head>
 
-  <body class="bg-white text-black">
-    <!-- Navbar -->
-    <div id="navbar"></div>
+        <!-- Template -->
+        <template id="product-template">
+          <div class="flex flex-col md:flex-row items-center gap-12 py-10">
+            <!-- IMAGE SECTION -->
+            <div class="w-full md:w-1/2">
+              <picture>
+                <source class="img-desktop" media="(min-width: 1024px)" />
+                <source class="img-tablet" media="(min-width: 640px)" />
+                <img
+                  class="img-mobile w-full rounded-xl object-cover max-h-[380px]"
+                />
+              </picture>
+            </div>
 
-    <section class="bg-[#131313] text-white py-24 pb-8 text-center">
-      <h1 id="page-title" class="text-3xl tracking-widest uppercase"></h1>
-    </section>
-    <div id="loader" class="flex justify-center py-20">
-        <div class="loader border-4 border-orange-500 border-t-transparent rounded-full w-10 h-10 animate-spin"></div>
+            <!-- TEXT SECTION -->
+            <div
+              class="w-full md:w-1/2 text-center md:text-left space-y-5 -mt-6 md:-mt-4"
+            >
+              <p
+                class="text-sm tracking-[8px] text-orange-500 uppercase new-badge hidden"
+              >
+                New Product
+              </p>
+              <h3
+                class="product-name text-3xl md:text-4xl font-bold uppercase"
+              ></h3>
+              <p class="product-desc text-gray-500 text-sm md:text-base"></p>
+              <a
+                href="product.html"
+                class="inline-block bg-orange-500 hover:bg-orange-400 text-white uppercase tracking-widest py-3 px-6 text-sm"
+                >See Product</a
+              >
+            </div>
+          </div>
+        </template>
+
+        <section class="py-20 px-4 md:px-20 bg-white">
+            <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-x-4 gap-y-16 md:gap-y-12">
+        
+                <!-- Headphones -->
+                <div class="bg-gray-100 text-center pt-16 pb-8 px-4 rounded-xl relative w-full max-w-[280px] h-[200px]">
+                    <img src="assets/shared/desktop/image-category-thumbnail-headphones.png" alt="Headphones"
+                        class="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-36 object-contain" />
+                    <h3 class="uppercase tracking-wide text-lg font-semibold text-black">Headphones</h3>
+                    <a href="category-headphones.html"
+                        class="text-sm tracking-widest text-gray-500 mt-2 inline-flex items-center group hover:text-orange-400">
+                        Shop
+                        <img src="assets/shared/desktop/icon-arrow-right.svg"
+                            class="ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                    </a>
+                </div>
+        
+                <!-- Speakers -->
+                <div class="bg-gray-100 text-center pt-16 pb-8 px-4 rounded-xl relative w-full max-w-[280px] h-[200px]">
+                    <img src="assets/shared/desktop/image-category-thumbnail-speakers.png" alt="Speakers"
+                        class="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-36 object-contain" />
+                    <h3 class="uppercase tracking-wide text-lg font-semibold text-black">Speakers</h3>
+                    <a href="#"
+                        class="text-sm tracking-widest text-gray-500 mt-2 inline-flex items-center group hover:text-orange-400">
+                        Shop
+                        <img src="assets/shared/desktop/icon-arrow-right.svg"
+                            class="ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                    </a>
+                </div>
+        
+                <!-- Earphones -->
+                <div class="bg-gray-100 text-center pt-16 pb-8 px-4 rounded-xl relative w-full max-w-[280px] h-[200px]">
+                    <img src="assets/shared/desktop/image-category-thumbnail-earphones.png" alt="Earphones"
+                        class="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-36 object-contain" />
+                    <h3 class="uppercase tracking-wide text-lg font-semibold text-black">Earphones</h3>
+                    <a href="#"
+                        class="text-sm tracking-widest text-gray-500 mt-2 inline-flex items-center group hover:text-orange-400">
+                        Shop
+                        <img src="assets/shared/desktop/icon-arrow-right.svg"
+                            class="ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                    </a>
+                </div>
+        
+            </div>
+        </section>
+
+        <section class="py-20 px-4 md:px-20">
+          <div
+            class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10"
+          >
+            <div class="md:w-1/2 text-center md:text-left space-y-6">
+              <h2 class="text-3xl md:text-4xl font-bold uppercase">
+                Bringing You the <span class="text-orange-500">Best</span> Audio
+                Gear
+              </h2>
+              <p class="text-gray-500">
+                Located at the heart of the music scene, ElectroGee is the premier
+                store for high-end headphones, speakers, and earphones. Visit our
+                demo facility – it's the best way to experience your audio before
+                buying.
+              </p>
+            </div>
+            <div class="md:w-1/2">
+              <!-- Responsive Best Gear Image -->
+              <picture>
+                <source
+                  media="(min-width: 468px)"
+                  srcset="assets/shared/desktop/image-best-gear.jpg"
+                />
+                <source
+                  media="(min-width: 340px)"
+                  srcset="assets/shared/tablet/image-best-gear.jpg"
+                />
+                <img
+                  src="assets/shared/mobile/image-best-gear.jpg"
+                  alt="Best Gear"
+                  class="rounded-xl w-full"
+                />
+              </picture>
+            </div>
+          </div>
+        </section>
+
+        <!-- cart model goes here -->
+        <div id="cart-modal"
+  class="fixed inset-0 sm:inset-auto sm:top-6 sm:right-6 mx-auto sm:mx-0 w-[90%] sm:w-[400px] bg-white shadow-2xl z-50 p-6 hidden overflow-y-auto transform translate-y-0 sm:translate-x-full transition-transform duration-300 rounded-xl max-h-[90vh]">
+
+
+  
+  <div class="flex justify-between items-center border-b pb-4 mb-6">
+    <h2 class="text-lg font-bold uppercase">
+      Cart (<span id="modal-cart-count">0</span>)
+    </h2>
+    <div class="flex gap-4 items-center">
+      <button id="clear-cart" class="text-gray-500 hover:text-red-500 text-sm">Clear All</button>
+      <button id="close-cart" class="text-gray-500 hover:text-gray-700 text-xl">×</button>
     </div>
+  </div>
+
+  <div id="cart-items" class="space-y-4 mb-6"></div>
+
+  <div class="border-t pt-4">
+    <div class="flex justify-between mb-4">
+      <span class="uppercase text-gray-500 text-sm">Total</span>
+      <span class="text-lg font-bold" id="cart-total">$0</span>
+    </div>
+    <button id="checkout-btn"
+      class="w-full bg-orange-500 text-white py-3 uppercase tracking-widest hover:bg-orange-400 transition-colors">
+      Checkout
+    </button>
+  </div>
+</div>
+
+<!-- Overlay -->
+<div id="cart-overlay" class="fixed inset-0 bg-black opacity-50 z-40 hidden"></div>
+
+
+        <footer class="bg-black text-white pt-10 pb-6 px-4 md:px-20">
+          <div class="max-w-7xl mx-auto">
+              <!-- Mobile Layout -->
+              <div class="md:hidden space-y-8">
+                  <!-- Logo centered on mobile -->
+                  <div class="text-center">
+                      <a href="index.html">
+                          <h1 class="text-xl font-bold tracking-widest lowercase">
+                              Electro<span class="text-orange-500">gee</span>
+                          </h1>
+                      </a>
+                        
+                  </div>
       
-    <!-- Products Container -->
-    <section id="product-list" class="space-y-20 px-6 py-16 max-w-6xl mx-auto hidden"></section>
-
-
-    <!-- Template -->
-    <template id="product-template">
-      <div class="flex flex-col md:flex-row items-center gap-12 py-10">
-        <!-- IMAGE SECTION -->
-        <div class="w-full md:w-1/2">
-          <picture>
-            <source class="img-desktop" media="(min-width: 1024px)" />
-            <source class="img-tablet" media="(min-width: 640px)" />
-            <img
-              class="img-mobile w-full rounded-xl object-cover max-h-[380px]"
-            />
-          </picture>
-        </div>
-
-        <!-- TEXT SECTION -->
-        <div
-          class="w-full md:w-1/2 text-center md:text-left space-y-5 -mt-6 md:-mt-4"
-        >
-          <p
-            class="text-sm tracking-[8px] text-orange-500 uppercase new-badge hidden"
-          >
-            New Product
-          </p>
-          <h3
-            class="product-name text-3xl md:text-4xl font-bold uppercase"
-          ></h3>
-          <p class="product-desc text-gray-500 text-sm md:text-base"></p>
-          <a
-            href="product.html"
-            class="inline-block bg-orange-500 hover:bg-orange-400 text-white uppercase tracking-widest py-3 px-6 text-sm"
-            >See Product</a
-          >
-        </div>
-      </div>
-    </template>
-
-    <section class="py-20 px-4 md:px-20 bg-white">
-        <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-x-4 gap-y-16 md:gap-y-12">
-    
-            <!-- Headphones -->
-            <div class="bg-gray-100 text-center pt-16 pb-8 px-4 rounded-xl relative w-full max-w-[280px] h-[200px]">
-                <img src="assets/shared/desktop/image-category-thumbnail-headphones.png" alt="Headphones"
-                    class="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-36 object-contain" />
-                <h3 class="uppercase tracking-wide text-lg font-semibold text-black">Headphones</h3>
-                <a href="category-headphones.html"
-                    class="text-sm tracking-widest text-gray-500 mt-2 inline-flex items-center group hover:text-orange-400">
-                    Shop
-                    <img src="assets/shared/desktop/icon-arrow-right.svg"
-                        class="ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-                </a>
-            </div>
-    
-            <!-- Speakers -->
-            <div class="bg-gray-100 text-center pt-16 pb-8 px-4 rounded-xl relative w-full max-w-[280px] h-[200px]">
-                <img src="assets/shared/desktop/image-category-thumbnail-speakers.png" alt="Speakers"
-                    class="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-36 object-contain" />
-                <h3 class="uppercase tracking-wide text-lg font-semibold text-black">Speakers</h3>
-                <a href="#"
-                    class="text-sm tracking-widest text-gray-500 mt-2 inline-flex items-center group hover:text-orange-400">
-                    Shop
-                    <img src="assets/shared/desktop/icon-arrow-right.svg"
-                        class="ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-                </a>
-            </div>
-    
-            <!-- Earphones -->
-            <div class="bg-gray-100 text-center pt-16 pb-8 px-4 rounded-xl relative w-full max-w-[280px] h-[200px]">
-                <img src="assets/shared/desktop/image-category-thumbnail-earphones.png" alt="Earphones"
-                    class="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-36 object-contain" />
-                <h3 class="uppercase tracking-wide text-lg font-semibold text-black">Earphones</h3>
-                <a href="#"
-                    class="text-sm tracking-widest text-gray-500 mt-2 inline-flex items-center group hover:text-orange-400">
-                    Shop
-                    <img src="assets/shared/desktop/icon-arrow-right.svg"
-                        class="ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-                </a>
-            </div>
-    
-        </div>
-    </section>
-
-    <section class="py-20 px-4 md:px-20">
-      <div
-        class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10"
-      >
-        <div class="md:w-1/2 text-center md:text-left space-y-6">
-          <h2 class="text-3xl md:text-4xl font-bold uppercase">
-            Bringing You the <span class="text-orange-500">Best</span> Audio
-            Gear
-          </h2>
-          <p class="text-gray-500">
-            Located at the heart of the music scene, ElectroGee is the premier
-            store for high-end headphones, speakers, and earphones. Visit our
-            demo facility – it's the best way to experience your audio before
-            buying.
-          </p>
-        </div>
-        <div class="md:w-1/2">
-          <!-- Responsive Best Gear Image -->
-          <picture>
-            <source
-              media="(min-width: 468px)"
-              srcset="assets/shared/desktop/image-best-gear.jpg"
-            />
-            <source
-              media="(min-width: 340px)"
-              srcset="assets/shared/tablet/image-best-gear.jpg"
-            />
-            <img
-              src="assets/shared/mobile/image-best-gear.jpg"
-              alt="Best Gear"
-              class="rounded-xl w-full"
-            />
-          </picture>
-        </div>
-      </div>
-    </section>
-
-    <div id="footer"></div>
-    <script src="js/app.js"></script>
-  </body>
-</html>
+                  <!-- Navigation in vertical list on mobile -->
+                  <nav class="flex flex-col items-center gap-4 uppercase text-sm tracking-widest">
+                      <a href="index.html" class="hover:text-orange-400 py-2">Home</a>
+                      <a href="category.html?category=headphones" class="hover:text-orange-400 py-2">Headphones</a>
+                      <a href="category.html?category=speakers" class="hover:text-orange-400 py-2">Speakers</a>
+                      <a href="category.html?category=earphones" class="hover:text-orange-400 py-2">Earphones</a>
+      
+                  </nav>
+      
+                  <!-- Description centered on mobile -->
+                  <div class="text-center">
+                      <p class="text-gray-400 text-sm">ElectroGee is your trusted online audio gear retailer. We provide
+                          the best quality products with unmatched customer service and demo experiences.</p>
+                  </div>
+      
+                  <!-- Social icons and copyright -->
+                  <div class="text-center space-y-4">
+                      <div class="flex justify-center gap-4">
+                          <img src="assets/shared/desktop/icon-facebook.svg" alt="Facebook" />
+                          <img src="assets/shared/desktop/icon-twitter.svg" alt="Twitter" />
+                          <img src="assets/shared/desktop/icon-instagram.svg" alt="Instagram" />
+                      </div>
+                      <p class="text-sm text-white/60">© 2025 ElectroGee. Developed by Gloria.</p>
+                  </div>
+              </div>
+      
+              <!-- Desktop Layout -->
+              <div class="hidden md:block space-y-6">
+                  <div class="flex flex-row justify-between items-center">
+                      <a href="index.html">
+                          <h1 class="text-xl font-bold tracking-widest lowercase">
+                              Electro<span class="text-orange-500">gee</span>
+                          </h1>
+                      </a>
+                        
+                      <nav class="flex gap-6 uppercase text-sm tracking-widest">
+                          <a href="index.html" class="hover:text-orange-400 py-2">Home</a>
+                          <a href="category.html?category=headphones" class="hover:text-orange-400 py-2">Headphones</a>
+                          <a href="category.html?category=speakers" class="hover:text-orange-400 py-2">Speakers</a>
+                          <a href="category.html?category=earphones" class="hover:text-orange-400 py-2">Earphones</a>
+      
+                      </nav>
+                  </div>
+                  <p class="text-gray-400 text-sm max-w-xl">ElectroGee is your trusted online audio gear retailer. We
+                      provide
+                      the best quality products with unmatched customer service and demo experiences.</p>
+                  <div class="flex flex-row justify-between items-center mt-6">
+                      <p class="text-sm text-white/60">© 2025 ElectroGee. Developed by Gloria.</p>
+                      <div class="flex gap-4">
+                          <img src="assets/shared/desktop/icon-facebook.svg" alt="Facebook" />
+                          <img src="assets/shared/desktop/icon-twitter.svg" alt="Twitter" />
+                          <img src="assets/shared/desktop/icon-instagram.svg" alt="Instagram" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </footer>
+        <script src="js/app.js"></script>
+        <script src="js/product.js"></script>
+        <script src="./js/cart.js"></script>
+      </body>
+    </html>
