@@ -26,22 +26,27 @@ function renderCart() {
         total += itemTotal;
 
         const div = document.createElement("div");
-        div.className = "flex items-center justify-between gap-2 py-2 border-b";
-        div.innerHTML = `
-            <div class="flex items-center gap-4 w-full">
-                <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-xl object-cover" />
-                <div class="flex-1">
-                    <h4 class="text-sm font-bold leading-tight">${item.name}</h4>
-                    <p class="text-sm text-gray-500">$${item.price}</p>
-                </div>
-                <div class="flex items-center gap-1 bg-gray-200 px-2 rounded text-sm">
-  <button class="text-base px-1" onclick="updateQuantity(${index}, -1)">−</button>
-  <span class="w-4 text-center">${item.quantity}</span>
-  <button class="text-base px-1" onclick="updateQuantity(${index}, 1)">+</button>
-</div>
+        div.className = "flex items-center justify-between gap-1 pb-2 pt-1 border-b";
 
-            </div>
-        `;
+
+div.innerHTML = `
+  <div class="flex items-start gap-2 w-full">
+    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-xl object-cover" />
+    
+    <div class="flex-1 flex flex-col justify-between gap-2">
+      <div>
+        <h4 class="text-sm font-bold leading-snug">${item.name}</h4>
+        <p class="text-sm text-gray-500">$${item.price}</p>
+      </div>
+      <div class="flex items-center gap-2 bg-gray-200 w-fit px-2 rounded text-sm">
+        <button class="text-base px-1" onclick="updateQuantity(${index}, -1)">−</button>
+        <span class="w-4 text-center">${item.quantity}</span>
+        <button class="text-base px-1" onclick="updateQuantity(${index}, 1)">+</button>
+      </div>
+    </div>
+  </div>
+`;
+
         cartItemsContainer.appendChild(div);
     });
 

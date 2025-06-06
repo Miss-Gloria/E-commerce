@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | ElectroGee</title>
+    <link rel="icon" href="assets/favicon-32x32.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: "Manrope", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-black">
+    <header class="bg-black text-white fixed top-0 left-0 right-0 z-50 shadow-md">
+        <!-- Mobile Header -->
+
+        <div class="md:hidden max-w-7xl mx-auto px-4 py-6 flex items-center justify-between relative">
+            <!-- Menu Button (Left) -->
+            <button id="menu-btn" class="text-white text-2xl">&#9776;</button>
+
+            <!-- Logo (Center) -->
+            <a href="index.html" class="absolute left-1/2 transform -translate-x-1/2">
+                <h1 class="text-xl font-bold tracking-widest lowercase">
+                    Electro<span class="text-orange-500">gee</span>
+                </h1>
+            </a>
+
+            <!-- Cart Icon (Right) -->
+            <div class="relative">
+                <img src="assets/icon-cart.svg" alt="Cart" class="cart-icon h-6 filter invert cursor-pointer" />
+                <span
+                    class="cart-count absolute -top-2 -right-2 bg-orange-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+            </div>
+        </div>
+
+        <!-- Desktop Header -->
+        <div class="hidden md:flex max-w-7xl mx-auto px-4 py-6 justify-between items-center">
+            <a href="index.html">
+                <h1 class="text-xl font-bold tracking-widest lowercase">
+                    Electro<span class="text-orange-500">gee</span>
+                </h1>
+            </a>
+
+            <nav class="flex gap-6 uppercase text-sm tracking-widest">
+                <a href="index.html" class="hover:text-orange-400 py-2">Home</a>
+                <a href="category.html?category=headphones" class="hover:text-orange-400 py-2">Headphones</a>
+                <a href="category.html?category=speakers" class="hover:text-orange-400 py-2">Speakers</a>
+                <a href="category.html?category=earphones" class="hover:text-orange-400 py-2">Earphones</a>
+            </nav>
+            <!-- <img src="assets/icon-cart.svg" alt="Cart" class="cart-icon" class="h-6 filter invert cursor-pointer" /> -->
+            <div class="relative">
+                <img src="assets/icon-cart.svg" alt="Cart" class="cart-icon h-6 filter invert cursor-pointer" />
+
+                <span
+                    class="cart-count absolute -top-2 -right-2 bg-orange-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+            </div>
+        </div>
+
+        <!-- Mobile Nav -->
+        <nav id="mobile-nav"
+            class="hidden bg-black text-white px-6 py-4 space-y-4 shadow-md rounded-b-lg transition-all duration-300 ease-in-out absolute top-[72px] left-0 right-0 z-40">
+            <a href="index.html" class="block hover:text-orange-400 uppercase text-sm">Home</a>
+            <a href="category.html?category=headphones"
+                class="block hover:text-orange-400 uppercase text-sm">Headphones</a>
+            <a href="category.html?category=speakers" class="block hover:text-orange-400 uppercase text-sm">Speakers</a>
+            <a href="category.html?category=earphones"
+                class="block hover:text-orange-400 uppercase text-sm">Earphones</a>
+        </nav>
+    </header>
+    <main class="max-w-6xl mx-auto px-4 py-10">
+        <div class="px-2 py-4  md:px-20 mt-8">
+            <a href="javascript:history.back()" class="text-sm text-gray-600 hover:text-orange-500">Go Back</a>
+        </div>
+    
+        <div class="grid lg:grid-cols-3 gap-8">
+          <!-- Form -->
+          <form class="lg:col-span-2 bg-white p-8 rounded-lg shadow-sm space-y-8">
+            <h2 class="text-3xl font-bold uppercase tracking-widest">Checkout</h2>
+    
+            <!-- Billing Details -->
+            <div>
+              <h3 class="text-orange-500 uppercase text-sm font-bold mb-4 tracking-wide">Billing Details</h3>
+              <div class="grid md:grid-cols-2 gap-6">
+                <input type="text" placeholder="Name" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm font-bold placeholder-gray-400" />
+                <input type="email" placeholder="Email Address" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm font-bold placeholder-gray-400" />
+                <input type="tel" placeholder="Phone Number" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm font-bold placeholder-gray-400 md:col-span-2" />
+              </div>
+            </div>
+    
+            <!-- Shipping Info -->
+            <div>
+              <h3 class="text-orange-500 uppercase text-sm font-bold mb-4 tracking-wide">Shipping Info</h3>
+              <div class="grid md:grid-cols-2 gap-6">
+                <input type="text" placeholder="Address" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm font-bold placeholder-gray-400 md:col-span-2" />
+                <input type="text" placeholder="ZIP Code" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm font-bold placeholder-gray-400" />
+                <input type="text" placeholder="City" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm font-bold placeholder-gray-400" />
+                <input type="text" placeholder="Country" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm font-bold placeholder-gray-400" />
+              </div>
+            </div>
+    
+            <!-- Payment -->
+            <div>
+              <h3 class="text-orange-500 uppercase text-sm font-bold mb-4 tracking-wide">Payment Details</h3>
+              <div class="space-y-4">
+                <div class="flex items-center space-x-4">
+                  <label class="flex items-center border px-4 py-3 rounded-lg w-full cursor-pointer hover:border-orange-500">
+                    <input type="radio" name="payment" value="emoney" checked class="mr-3" />
+                    <span class="text-sm font-bold">e-Money</span>
+                  </label>
+                  <label class="flex items-center border px-4 py-3 rounded-lg w-full cursor-pointer hover:border-orange-500">
+                    <input type="radio" name="payment" value="cod" class="mr-3" />
+                    <span class="text-sm font-bold">Cash on Delivery</span>
+                  </label>
+                </div>
+    
+                <!-- e-Money Fields -->
+                <div id="emoney-fields" class="grid md:grid-cols-2 gap-6">
+                  <input type="text" placeholder="e-Money Number" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm font-bold placeholder-gray-400" />
+                  <input type="text" placeholder="e-Money PIN" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm font-bold placeholder-gray-400" />
+                </div>
+    
+                <!-- COD Message -->
+                <div id="cod-message" class="hidden mt-4 flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
+                  <div class="text-orange-500 text-2xl">💰</div>
+                  <p class="text-sm text-gray-600 leading-relaxed">
+                    Pay in cash when our courier arrives. Make sure your address is correct to avoid cancellation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </form>
+    
+          <!-- Summary -->
+          <div class="bg-white p-6 rounded-lg shadow-md space-y-6">
+            <h2 class="text-lg font-bold uppercase">Summary</h2>
+            <div id="summary-items" class="space-y-4">
+              <!-- Populated via JS -->
+            </div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span class="text-gray-500 uppercase">Total</span>
+                <span id="summary-total" class="font-bold">$0</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-500 uppercase">Shipping</span>
+                <span>$50</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-500 uppercase">VAT (20%)</span>
+                <span id="summary-vat">$0</span>
+              </div>
+              <div class="flex justify-between font-bold">
+                <span class="uppercase">Grand Total</span>
+                <span id="summary-grand" class="text-orange-500">$0</span>
+              </div>
+            </div>
+            <button type="button" id="checkout-btn"
+  class="w-full bg-orange-500 text-white py-3 uppercase tracking-widest hover:bg-orange-400 transition">
+  Continue & Pay
+</button>
+
+          </div>
+        </div>
+      </main>
+<!-- Success Modal -->
+<div id="success-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 sm:p-8 rounded-lg max-w-md w-full mx-4 sm:mx-0 text-center space-y-6">
+
+      <div class="flex justify-center">
+        <div class="w-12 h-12 rounded-full bg-orange-500 text-white flex items-center justify-center text-2xl">✓</div>
+      </div>
+      <h2 class="text-xl font-bold uppercase">Thank you for your order</h2>
+      <p class="text-sm text-gray-600">You will receive an email confirmation shortly.</p>
+  
+      <!-- ✅ Order Summary -->
+      <!-- Order Summary -->
+<div class="bg-gray-100 rounded-lg p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+    <!-- First item placeholder -->
+    <div class="flex items-center gap-4" id="modal-item">
+      <!-- JS populates this -->
+    </div>
+  
+    <!-- Grand Total -->
+    <div class="border-t sm:border-t-0 sm:border-l border-gray-300 pt-4 sm:pt-0 sm:pl-4 text-left sm:text-right w-full sm:w-auto">
+      <p class="uppercase text-xs text-gray-500">Grand Total</p>
+      <p id="modal-grand-total" class="text-lg font-bold text-black">$0</p>
+    </div>
+  </div>
+  
+  
+      <!-- ✅ Text for "and X other items" -->
+      <p id="modal-other-count" class="text-sm text-gray-600 hidden mt-2"></p>
+  
+      <a href="index.html" class="block bg-orange-500 hover:bg-orange-400 text-white py-3 rounded-md uppercase text-sm tracking-widest">
+        Back to Home
+      </a>
+    </div>
+  </div>
+  
+  
+    <footer class="bg-black text-white pt-10 pb-6 px-4 md:px-20">
+        <div class="max-w-7xl mx-auto">
+            <!-- Mobile Layout -->
+            <div class="md:hidden space-y-8">
+                <!-- Logo centered on mobile -->
+                <div class="text-center">
+                    <a href="index.html">
+                        <h1 class="text-xl font-bold tracking-widest lowercase">
+                            Electro<span class="text-orange-500">gee</span>
+                        </h1>
+                    </a>
+                </div>
+
+                <!-- Navigation in vertical list on mobile -->
+                <nav class="flex flex-col items-center gap-4 uppercase text-sm tracking-widest">
+                    <a href="index.html" class="hover:text-orange-400 py-2">Home</a>
+                    <a href="category.html?category=headphones" class="hover:text-orange-400 py-2">Headphones</a>
+                    <a href="category.html?category=speakers" class="hover:text-orange-400 py-2">Speakers</a>
+                    <a href="category.html?category=earphones" class="hover:text-orange-400 py-2">Earphones</a>
+                </nav>
+
+                <!-- Description centered on mobile -->
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm">
+                        ElectroGee is your trusted online audio gear retailer. We provide
+                        the best quality products with unmatched customer service and demo
+                        experiences.
+                    </p>
+                </div>
+
+                <!-- Social icons and copyright -->
+                <div class="text-center space-y-4">
+                    <div class="flex justify-center gap-4">
+                        <img src="assets/shared/desktop/icon-facebook.svg" alt="Facebook" />
+                        <img src="assets/shared/desktop/icon-twitter.svg" alt="Twitter" />
+                        <img src="assets/shared/desktop/icon-instagram.svg" alt="Instagram" />
+                    </div>
+                    <p class="text-sm text-white/60">
+                        © 2025 ElectroGee. Developed by Gloria.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Desktop Layout -->
+            <div class="hidden md:block space-y-6">
+                <div class="flex flex-row justify-between items-center">
+                    <a href="index.html">
+                        <h1 class="text-xl font-bold tracking-widest lowercase">
+                            Electro<span class="text-orange-500">gee</span>
+                        </h1>
+                    </a>
+
+                    <nav class="flex gap-6 uppercase text-sm tracking-widest">
+                        <a href="index.html" class="hover:text-orange-400 py-2">Home</a>
+                        <a href="category.html?category=headphones" class="hover:text-orange-400 py-2">Headphones</a>
+                        <a href="category.html?category=speakers" class="hover:text-orange-400 py-2">Speakers</a>
+                        <a href="category.html?category=earphones" class="hover:text-orange-400 py-2">Earphones</a>
+                    </nav>
+                </div>
+                <p class="text-gray-400 text-sm max-w-xl">
+                    ElectroGee is your trusted online audio gear retailer. We provide
+                    the best quality products with unmatched customer service and demo
+                    experiences.
+                </p>
+                <div class="flex flex-row justify-between items-center mt-6">
+                    <p class="text-sm text-white/60">
+                        © 2025 ElectroGee. Developed by Gloria.
+                    </p>
+                    <div class="flex gap-4">
+                        <img src="assets/shared/desktop/icon-facebook.svg" alt="Facebook" />
+                        <img src="assets/shared/desktop/icon-twitter.svg" alt="Twitter" />
+                        <img src="assets/shared/desktop/icon-instagram.svg" alt="Instagram" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/app.js"></script>
+    <script src="./js/checkout.js"></script>
+    <script src="./js/product.js"></script>
+</body>
+
+</html>
