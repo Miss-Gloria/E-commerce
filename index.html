@@ -7,7 +7,7 @@
   <title>ElectroGee</title>
   <link rel="icon" href="assets/favicon-32x32.png" />
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -18,28 +18,19 @@
 
 <body class="bg-white text-black">
   <header class="bg-black text-white fixed top-0 left-0 right-0 z-50 shadow-md">
-    <!-- Mobile Header -->
-  
-<div class="md:hidden max-w-7xl mx-auto px-4 py-6 flex items-center justify-between relative">
-  <!-- Menu Button (Left) -->
-  <button id="menu-btn" class="text-white text-2xl">&#9776;</button>
-
-  <!-- Logo (Center) -->
-  <a href="index.html" class="absolute left-1/2 transform -translate-x-1/2">
-    <h1 class="text-xl font-bold tracking-widest lowercase">
-      Electro<span class="text-orange-500">gee</span>
-    </h1>
-  </a>
-
-  <!-- Cart Icon (Right) -->
-  <div class="relative">
-    <img src="assets/icon-cart.svg" alt="Cart" class="cart-icon h-6 filter invert cursor-pointer" />
-    <span class="cart-count absolute -top-2 -right-2 bg-orange-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
-  </div>
-</div>
-
-
-    <!-- Desktop Header -->
+    <div class="md:hidden max-w-7xl mx-auto px-4 py-6 flex items-center justify-between relative">
+      <button id="menu-btn" class="text-white text-2xl">&#9776;</button>
+      <a href="index.html" class="absolute left-1/2 transform -translate-x-1/2">
+        <h1 class="text-xl font-bold tracking-widest lowercase">
+          Electro<span class="text-orange-500">gee</span>
+        </h1>
+      </a>
+      <div class="relative">
+        <img src="assets/icon-cart.svg" alt="Cart" class="cart-icon h-6 filter invert cursor-pointer" />
+        <span
+          class="cart-count absolute -top-2 -right-2 bg-orange-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+      </div>
+    </div>
     <div class="hidden md:flex max-w-7xl mx-auto px-4 py-6 justify-between items-center">
       <a href="index.html">
         <h1 class="text-xl font-bold tracking-widest lowercase">
@@ -53,33 +44,61 @@
         <a href="category.html?category=speakers" class="hover:text-orange-400 py-2">Speakers</a>
         <a href="category.html?category=earphones" class="hover:text-orange-400 py-2">Earphones</a>
       </nav>
-      <!-- <img src="assets/icon-cart.svg" alt="Cart" class="cart-icon" class="h-6 filter invert cursor-pointer" /> -->
       <div class="relative">
         <img src="assets/icon-cart.svg" alt="Cart" class="cart-icon h-6 filter invert cursor-pointer" />
 
-        <span 
+        <span
           class="cart-count absolute -top-2 -right-2 bg-orange-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
       </div>
     </div>
-
-    <!-- Mobile Nav -->
-    <nav id="mobile-nav"
-      class="hidden bg-black text-white px-6 py-4 space-y-4 shadow-md rounded-b-lg transition-all duration-300 ease-in-out absolute top-[72px] left-0 right-0 z-40">
-      <a href="index.html" class="block hover:text-orange-400 uppercase text-sm">Home</a>
-      <a href="category.html?category=headphones" class="block hover:text-orange-400 uppercase text-sm">Headphones</a>
-      <a href="category.html?category=speakers" class="block hover:text-orange-400 uppercase text-sm">Speakers</a>
-      <a href="category.html?category=earphones" class="block hover:text-orange-400 uppercase text-sm">Earphones</a>
-    </nav>
   </header>
 
-  <!-- Hero Section - Mobile -->
+
+  <nav id="mobile-nav"
+    class="hidden absolute top-[98px] left-0 right-0 bg-white/95 backdrop-blur-sm px-4 py-10 shadow-md z-50 rounded-b-xl">
+    <div class="flex flex-col items-center gap-8">
+      <div class="bg-gray-200 text-center pt-24 pb-8 px-4 rounded-xl relative w-[90%] max-w-xs h-[200px]">
+        <img src="assets/shared/desktop/image-category-thumbnail-headphones.png" alt="Headphones"
+          class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 h-36 object-contain" />
+        <h3 class="uppercase tracking-wide text-lg font-semibold text-black">Headphones</h3>
+        <a href="category.html?category=headphones"
+          class="text-sm tracking-widest text-gray-500 mt-2 inline-flex items-center group hover:text-orange-400">
+          Shop
+          <img src="assets/shared/desktop/icon-arrow-right.svg"
+            class="ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+        </a>
+      </div>
+      <div class="bg-gray-200 text-center pt-24 pb-8 px-4 rounded-xl relative w-[90%] max-w-xs h-[200px]">
+        <img src="assets/shared/desktop/image-category-thumbnail-speakers.png" alt="Speakers"
+          class="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/4 h-36 object-contain" />
+        <h3 class="uppercase tracking-wide text-lg font-semibold text-black">Speakers</h3>
+        <a href="category.html?category=speakers"
+          class="text-sm tracking-widest text-gray-500 mt-2 inline-flex items-center group hover:text-orange-400">
+          Shop
+          <img src="assets/shared/desktop/icon-arrow-right.svg"
+            class="ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+        </a>
+      </div>
+      <div class="bg-gray-200 text-center pt-24 pb-8 px-4 rounded-xl relative w-[90%] max-w-xs h-[200px]">
+        <img src="assets/shared/desktop/image-category-thumbnail-earphones.png" alt="Earphones"
+          class="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/4 h-36 object-contain" />
+        <h3 class="uppercase tracking-wide text-lg font-semibold text-black">Earphones</h3>
+        <a href="category.html?category=earphones"
+          class="text-sm tracking-widest text-gray-500 mt-2 inline-flex items-center group hover:text-orange-400">
+          Shop
+          <img src="assets/shared/desktop/icon-arrow-right.svg"
+            class="ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+  <div id="nav-overlay" class="hidden fixed inset-0 bg-black/40 z-40"></div>
   <section class="bg-black text-white sm:hidden">
-    <!-- Hero Image -->
     <div class="relative">
       <img src="assets/home/mobile/image-header.jpg" alt="Hero Image" class="w-full h-[500px] object-cover" />
-      <!-- Overlay for better text readability -->
       <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-      <!-- Text overlay on image -->
       <div class="absolute inset-0 flex items-center justify-center px-4">
         <div class="text-center space-y-4 max-w-sm">
           <p class="text-xs tracking-[8px] text-gray-300 uppercase">
@@ -99,8 +118,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Hero Section - Tablet -->
   <section class="bg-black text-white hidden sm:block md:hidden text-center py-20 px-4">
     <div class="relative">
       <img src="assets/home/tablet/image-header.jpg" alt="Hero Image"
@@ -125,8 +142,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Hero Section - Desktop -->
   <section class="bg-black text-white hidden md:block text-left py-20 px-4 md:px-20">
     <div class="max-w-7xl mx-auto flex flex-row items-center">
       <div class="w-full md:w-1/2 space-y-6">
@@ -149,10 +164,8 @@
       </div>
     </div>
   </section>
-
   <section class="py-20 px-4 md:px-20 bg-white">
     <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-x-4 gap-y-16 md:gap-y-12">
-      <!-- Headphones -->
       <div class="bg-gray-100 text-center pt-16 pb-8 px-4 rounded-xl relative w-full max-w-[280px] h-[200px]">
         <img src="assets/shared/desktop/image-category-thumbnail-headphones.png" alt="Headphones"
           class="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-36 object-contain" />
@@ -166,8 +179,6 @@
             class="ml-2 group-hover:translate-x-1 transition-transform duration-200" />
         </a>
       </div>
-
-      <!-- Speakers -->
       <div class="bg-gray-100 text-center pt-16 pb-8 px-4 rounded-xl relative w-full max-w-[280px] h-[200px]">
         <img src="assets/shared/desktop/image-category-thumbnail-speakers.png" alt="Speakers"
           class="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-36 object-contain" />
@@ -181,8 +192,6 @@
             class="ml-2 group-hover:translate-x-1 transition-transform duration-200" />
         </a>
       </div>
-
-      <!-- Earphones -->
       <div class="bg-gray-100 text-center pt-16 pb-8 px-4 rounded-xl relative w-full max-w-[280px] h-[200px]">
         <img src="assets/shared/desktop/image-category-thumbnail-earphones.png" alt="Earphones"
           class="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-36 object-contain" />
@@ -198,11 +207,8 @@
       </div>
     </div>
   </section>
-
   <section class="px-4 md:px-20 max-w-7xl mx-auto space-y-10">
-    <!-- ZX9 Speaker Section -->
     <div class="bg-orange-500 rounded-xl p-10 flex flex-col md:flex-row items-center justify-between">
-      <!-- Responsive ZX9 Speaker Image -->
       <picture>
         <source media="(min-width: 768px)" srcset="assets/home/desktop/image-speaker-zx9.png" />
         <source media="(min-width: 640px)" srcset="assets/home/tablet/image-speaker-zx9.png" />
@@ -219,16 +225,11 @@
           Product</a>
       </div>
     </div>
-
-    <!-- ZX7 Speaker Section with Responsive Images -->
     <div class="relative rounded-xl overflow-hidden bg-gray-200 min-h-[300px] flex items-center">
-      <!-- Desktop Image -->
       <img src="assets/home/desktop/image-speaker-zx7.jpg" alt="ZX7 Speaker"
         class="hidden md:block absolute inset-0 w-full h-full object-cover" />
-      <!-- Tablet Image -->
       <img src="assets/home/tablet/image-speaker-zx7.jpg" alt="ZX7 Speaker"
         class="hidden sm:block md:hidden absolute inset-0 w-full h-full object-cover" />
-      <!-- Mobile Image -->
       <img src="assets/home/mobile/image-speaker-zx7.jpg" alt="ZX7 Speaker"
         class="block sm:hidden absolute inset-0 w-full h-full object-cover pl-2 sm:pl-6" />
 
@@ -241,10 +242,7 @@
           Product</a>
       </div>
     </div>
-
-    <!-- YX1 Earphones Section -->
     <div class="grid md:grid-cols-2 gap-6 items-stretch">
-      <!-- YX1 Image -->
       <div class="h-full">
         <picture>
           <source media="(min-width: 1024px)" srcset="assets/home/desktop/image-earphones-yx1.jpg" />
@@ -253,8 +251,6 @@
             class="w-full h-full object-cover rounded-xl" />
         </picture>
       </div>
-
-      <!-- Text Box -->
       <div class="bg-gray-100 rounded-xl p-2 sm:p-10 pl-4 sm:pl-16 flex flex-col justify-center h-full">
         <h3 class="text-2xl font-bold uppercase">YX1 Earphones</h3>
         <a href="product.html?slug=yx1-earphones"
@@ -280,7 +276,6 @@
         </p>
       </div>
       <div class="md:w-1/2">
-        <!-- Responsive Best Gear Image -->
         <picture>
           <source media="(min-width: 768px)" srcset="assets/shared/desktop/image-best-gear.jpg" />
           <source media="(min-width: 640px)" srcset="assets/shared/tablet/image-best-gear.jpg" />
@@ -289,49 +284,42 @@
       </div>
     </div>
   </section>
- <!-- Overlay -->
-<div id="cart-overlay" class="fixed inset-0 bg-black opacity-50 z-40 hidden"></div>
+  <div id="cart-overlay" class="fixed inset-0 bg-black opacity-50 z-40 hidden"></div>
+  <div id="cart-modal"
+    class="fixed inset-0 sm:inset-auto sm:top-16 sm:right-8 sm:translate-x-0 z-50 flex items-start justify-center sm:justify-end sm:items-start p-2 sm:p-0 hidden pt-16 sm:pt-0">
 
-<!-- Cart Modal -->
-<div id="cart-modal"
-  class="fixed inset-0 sm:inset-auto sm:top-16 sm:right-8 sm:translate-x-0 z-50 flex items-start justify-center sm:justify-end sm:items-start p-2 sm:p-0 hidden pt-16 sm:pt-0">
-
-  <div class="w-[90%] sm:w-[400px] bg-white shadow-2xl p-6 rounded-xl max-h-[80vh] overflow-y-auto mt-1 sm:mt-0">
-
-    <!-- Header -->
-    <div class="flex justify-between items-center border-b pb-4 mb-6">
-      <h2 class="text-lg font-bold uppercase">
-        Cart (<span id="modal-cart-count">0</span>)
-      </h2>
-      <div class="flex gap-4 items-center">
-        <button id="clear-cart" class="text-gray-500 hover:text-red-500 text-sm">Clear All</button>
-        <button id="close-cart" class="text-gray-500 hover:text-gray-700 text-xl">×</button>
+    <div class="w-[90%] sm:w-[400px] bg-white shadow-2xl p-6 rounded-xl max-h-[80vh] overflow-y-auto mt-1 sm:mt-0">
+      <div class="flex justify-between items-center border-b pb-4 mb-6">
+        <h2 class="text-lg font-bold uppercase">
+          Cart (<span id="modal-cart-count">0</span>)
+        </h2>
+        <div class="flex gap-4 items-center">
+          <button id="clear-cart" class="text-gray-500 hover:text-red-500 text-sm">Clear All</button>
+          <button id="close-cart" class="text-gray-500 hover:text-gray-700 text-xl">×</button>
+        </div>
       </div>
-    </div>
-
-    <!-- Items -->
-    <div id="cart-items" class="space-y-2 mb-6"></div>
-
-    <!-- Footer -->
-    <div class="border-t pt-2">
-      <div class="flex justify-between mb-2">
-        <span class="uppercase text-gray-500 text-sm">Total</span>
-        <span class="text-lg font-bold" id="cart-total">$0</span>
+      <div id="cart-items" class="space-y-2 mb-6"></div>
+      <div class="border-t pt-2">
+        <div class="flex justify-between mb-2">
+          <span class="uppercase text-gray-500 text-sm">Total</span>
+          <span class="text-lg font-bold" id="cart-total">$0</span>
+        </div>
+        <div class="relative group">
+          <div id="tooltip"
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 hidden">
+            Add items to proceed.
+          </div>
+          <a id="checkout-btn" href="checkout.html"
+            class="block w-full text-center bg-orange-500 text-white py-2 uppercase tracking-widest hover:bg-orange-400 transition-colors rounded cursor-pointer">
+            Checkout
+          </a>
+        </div>
       </div>
-      <a href="checkout.html"
-   class="block w-full text-center bg-orange-500 text-white py-2 uppercase tracking-widest hover:bg-orange-400 transition-colors rounded">
-  Checkout
-</a>
-
     </div>
   </div>
-</div>
-  <!-- Fixed Footer for Mobile Responsiveness -->
   <footer class="bg-black text-white pt-10 pb-6 px-4 md:px-20">
     <div class="max-w-7xl mx-auto">
-      <!-- Mobile Layout -->
       <div class="md:hidden space-y-8">
-        <!-- Logo centered on mobile -->
         <div class="text-center">
           <a href="index.html">
             <h1 class="text-xl font-bold tracking-widest lowercase">
@@ -339,16 +327,12 @@
             </h1>
           </a>
         </div>
-
-        <!-- Navigation in vertical list on mobile -->
         <nav class="flex flex-col items-center gap-4 uppercase text-sm tracking-widest">
           <a href="index.html" class="hover:text-orange-400 py-2">Home</a>
           <a href="category.html?category=headphones" class="hover:text-orange-400 py-2">Headphones</a>
           <a href="category.html?category=speakers" class="hover:text-orange-400 py-2">Speakers</a>
           <a href="category.html?category=earphones" class="hover:text-orange-400 py-2">Earphones</a>
         </nav>
-
-        <!-- Description centered on mobile -->
         <div class="text-center">
           <p class="text-gray-400 text-sm">
             ElectroGee is your trusted online audio gear retailer. We provide
@@ -356,8 +340,6 @@
             experiences.
           </p>
         </div>
-
-        <!-- Social icons and copyright -->
         <div class="text-center space-y-4">
           <div class="flex justify-center gap-4">
             <img src="assets/shared/desktop/icon-facebook.svg" alt="Facebook" />
@@ -369,8 +351,6 @@
           </p>
         </div>
       </div>
-
-      <!-- Desktop Layout -->
       <div class="hidden md:block space-y-6">
         <div class="flex flex-row justify-between items-center">
           <a href="index.html">
@@ -404,7 +384,7 @@
       </div>
     </div>
   </footer>
-  <script src="./js/app.js" ></script>
+  <script src="./js/app.js"></script>
   <script src="./js/cart.js"></script>
 </body>
 

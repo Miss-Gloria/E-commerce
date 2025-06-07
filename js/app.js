@@ -1,24 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Burger menu toggle
   const menuBtn = document.getElementById("menu-btn");
   const mobileNav = document.getElementById("mobile-nav");
+  const navOverlay = document.getElementById("nav-overlay");
 
-  if (menuBtn && mobileNav) {
+  if (menuBtn && mobileNav && navOverlay) {
     menuBtn.addEventListener("click", () => {
+      const isOpen = !mobileNav.classList.contains("hidden");
       mobileNav.classList.toggle("hidden");
+      navOverlay.classList.toggle("hidden");
+
+      navOverlay.addEventListener("click", () => {
+        mobileNav.classList.add("hidden");
+        navOverlay.classList.add("hidden");
+      });
     });
   }
 
-  // Update cart badge
   const cartCount = document.getElementById("cart-count");
   const modalCartCount = document.getElementById("modal-cart-count");
-
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   if (cartCount) cartCount.textContent = totalItems;
   if (modalCartCount) modalCartCount.textContent = totalItems;
 
-  // Product rendering logic (only on category pages)
   const loader = document.getElementById("loader");
   const container = document.getElementById("product-list");
 
@@ -26,16 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
     loader.classList.remove("hidden");
     container.classList.add("hidden");
 
-    function getCategoryFromURL() {
+    const getCategoryFromURL = () => {
       const params = new URLSearchParams(window.location.search);
       return params.get("category") || "headphones";
-    }
+    };
 
     const category = getCategoryFromURL();
     const title = document.getElementById("page-title");
-    if (title) {
-      title.textContent = category.charAt(0).toUpperCase() + category.slice(1);
-    }
+    if (title) title.textContent = category.charAt(0).toUpperCase() + category.slice(1);
 
     fetch("./data.json")
       .then(res => res.json())
